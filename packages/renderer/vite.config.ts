@@ -1,5 +1,8 @@
 import { builtinModules } from 'module'
 import { defineConfig, Plugin } from 'vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 import vue from '@vitejs/plugin-vue'
 import resolve from 'vite-plugin-resolve'
 import pkg from '../../package.json'
@@ -22,8 +25,14 @@ export default defineConfig({
        */
       {
         sqlite3: 'const sqlite3 = require("sqlite3"); export default sqlite3;',
-      },
+      }
     ),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    })
   ],
   base: './',
   build: {
