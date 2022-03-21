@@ -1,0 +1,24 @@
+$header_height: 50px;
+$sidebar_width: 200px;
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  background: #ececec;
+  .layout {
+    .layout-header {
+      height: $header_height;
+    }
+    .layout-body {
+      top: $header_height;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      .layout-sidebar {
+        width: $sidebar_width;
+      }
+    }
+  }
+}
+.flex-1 {
+  flex: 1;
+}
