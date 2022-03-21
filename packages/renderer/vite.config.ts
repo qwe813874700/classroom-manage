@@ -1,12 +1,9 @@
 import { builtinModules } from 'module'
 import { defineConfig, Plugin } from 'vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
 import vue from '@vitejs/plugin-vue'
-import resolve from 'vite-plugin-resolve'
+import viteResolve from 'vite-plugin-resolve'
 import pkg from '../../package.json'
-
+import { resolve } from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   mode: process.env.NODE_ENV,
@@ -26,13 +23,7 @@ export default defineConfig({
       {
         sqlite3: 'const sqlite3 = require("sqlite3"); export default sqlite3;',
       }
-    ),
-    AutoImport({
-      resolvers: [ElementPlusResolver()],
-    }),
-    Components({
-      resolvers: [ElementPlusResolver()],
-    })
+    )
   ],
   base: './',
   build: {
@@ -43,6 +34,11 @@ export default defineConfig({
     host: pkg.env.VITE_DEV_SERVER_HOST,
     port: pkg.env.VITE_DEV_SERVER_PORT,
   },
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src')
+    }
+  }
 })
 
 /**
@@ -50,13 +46,13 @@ export default defineConfig({
  * @see https://github.com/caoxiemeihao/electron-vue-vite/issues/52
  */
 export function resolveElectron(
-  resolves: Parameters<typeof resolve>[0] = {}
+  resolves: Parameters<typeof viteResolve>[0] = {}
 ): Plugin {
   const builtins = builtinModules.filter((t) => !t.startsWith('_'))
   /**
    * @see https://github.com/caoxiemeihao/vite-plugins/tree/main/packages/resolve#readme
    */
-  return resolve({
+  return viteResolve({
     electron: electronExport(),
     ...builtinModulesExport(builtins),
     ...resolves,

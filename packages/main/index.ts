@@ -25,7 +25,7 @@ async function createWindow() {
       contextIsolation: false,
     },
   })
-
+  win.maximize()
   if (app.isPackaged) {
     win.loadFile(join(__dirname, '../renderer/index.html'))
   } else {

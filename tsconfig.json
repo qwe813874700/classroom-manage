@@ -10,8 +10,10 @@
     "sourceMap": true,
     "baseUrl": "./",
     "strict": true,
-    "paths": {},
     "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@": ["packages/renderer/src"]
+    }
   }
 }
