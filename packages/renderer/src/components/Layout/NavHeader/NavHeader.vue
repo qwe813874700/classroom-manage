@@ -17,8 +17,11 @@
 <style lang="scss">
 .nav-list {
   .nav-item {
-    padding: 13px;
+    padding: 17px;
     margin: 0 5px;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 600;
     cursor: pointer;
     &.active {
       color: #409eff;

@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import ipcRendererSample from './mainModules/ipcRendererSample'
 import fsExample from './mainModules/builtinModuleSample'
-import sqliteExample from './mainModules/nodeModulesSample'
 import store from './store'
 import ElementPlus from 'element-plus'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -17,5 +16,4 @@ createApp(App)
     window.removeLoading()
     ipcRendererSample()
     fsExample()
-    sqliteExample()
   })

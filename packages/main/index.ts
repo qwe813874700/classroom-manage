@@ -1,4 +1,4 @@
-import { app, BrowserWindow, shell } from 'electron'
+import { app, BrowserWindow, shell, Menu } from 'electron'
 import { release } from 'os'
 import { join } from 'path'
 
@@ -17,6 +17,7 @@ process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 let win: BrowserWindow | null = null
 
 async function createWindow() {
+  Menu.setApplicationMenu(null)
   win = new BrowserWindow({
     title: 'Main window',
     webPreferences: {

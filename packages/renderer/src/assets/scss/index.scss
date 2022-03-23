@@ -1,9 +1,14 @@
-$header_height: 50px;
-$sidebar_width: 200px;
+$header_height: 60px;
+$sidebar_width: 250px;
+* {
+  user-select: none;
+}
 html, body, #app {
   width: 100%;
   height: 100%;
   background: #ececec;
+  min-width: 1000px;
+  overflow: hidden;
   .layout {
     .layout-header {
       height: $header_height;
@@ -15,6 +20,9 @@ html, body, #app {
       right: 0;
       .layout-sidebar {
         width: $sidebar_width;
+      }
+      .layout-content {
+        padding: 20px;
       }
     }
   }
