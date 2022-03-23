@@ -1,8 +1,8 @@
 {
-  "name": "electron-vue-vite",
+  "name": "classroom-manage",
   "version": "1.0.0",
   "main": "dist/main/index.cjs",
-  "author": "草鞋没号 <308487730@qq.com>",
+  "author": "813874700@qq.com",
   "license": "MIT",
   "scripts": {
     "dev": "node scripts/watch.mjs",
@@ -46,7 +46,6 @@
     "element-plus": "^2.1.4",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
-    "sqlite3": "^5.0.2",
     "vuex": "^4.0.2"
   }
 }

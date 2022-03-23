@@ -19,14 +19,16 @@ let win: BrowserWindow | null = null
 async function createWindow() {
   Menu.setApplicationMenu(null)
   win = new BrowserWindow({
-    title: 'Main window',
+    title: 'Classroom Manage',
     webPreferences: {
       preload: join(__dirname, '../preload/index.cjs'),
       nodeIntegration: true,
-      contextIsolation: false,
+      contextIsolation: false
     },
+    width: 1200,
+    height: 930
   })
-  win.maximize()
+  // win.maximize()
   if (app.isPackaged) {
     win.loadFile(join(__dirname, '../renderer/index.html'))
   } else {
@@ -34,7 +36,7 @@ async function createWindow() {
     const url = `http://${process.env['VITE_DEV_SERVER_HOST']}:${process.env['VITE_DEV_SERVER_PORT']}`
 
     win.loadURL(url)
-    win.webContents.openDevTools()
+    // win.webContents.openDevTools()
   }
 
   // Communicate with the Renderer-process.
