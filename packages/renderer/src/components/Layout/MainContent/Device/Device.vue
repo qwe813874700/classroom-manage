@@ -5,11 +5,12 @@
 </script>
 
 <template>
-  <el-radio v-model="scanType" :label="0" size="large">Option 1</el-radio>
-  <div class="d-flex align-items-center mt-2">
-    <div class="label mx-3">IP Range</div>
+  <el-radio v-model="scanType" :label="0" size="large">IP Scan</el-radio>
+  <div class="d-flex mt-2">
+    <div class="label mx-3 mt-2">IP Range</div>
     <div class="flex-1">
       <el-input v-model="ipRange" class="w-75 mt-2"></el-input>
+      <label class="mt-2">Example: 192.168.1.1 - 192.168.10.200</label>
     </div>
   </div>
   <el-radio v-model="scanType" :label="1" size="large" class="mt-2">Multicast</el-radio>

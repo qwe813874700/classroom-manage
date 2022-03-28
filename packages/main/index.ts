@@ -19,7 +19,7 @@ let win: BrowserWindow | null = null
 async function createWindow() {
   Menu.setApplicationMenu(null)
   win = new BrowserWindow({
-    title: 'Classroom Manage',
+    title: 'Classroom Manager',
     webPreferences: {
       preload: join(__dirname, '../preload/index.cjs'),
       nodeIntegration: true,
@@ -36,7 +36,7 @@ async function createWindow() {
     const url = `http://${process.env['VITE_DEV_SERVER_HOST']}:${process.env['VITE_DEV_SERVER_PORT']}`
 
     win.loadURL(url)
-    // win.webContents.openDevTools()
+    win.webContents.openDevTools()
   }
 
   // Communicate with the Renderer-process.

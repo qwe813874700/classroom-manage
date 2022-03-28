@@ -73,8 +73,8 @@
     <div class="d-title">Display Power</div>
     <div class="flex-1">
       <el-radio-group v-model="displayPower">
-      <el-radio-button :label="0">HDMI 1</el-radio-button>
-      <el-radio-button :label="1">HDMI 2</el-radio-button>
+      <el-radio-button :label="0">ON</el-radio-button>
+      <el-radio-button :label="1">OFF</el-radio-button>
     </el-radio-group>
     </div>
   </div>
@@ -82,8 +82,8 @@
     <div class="d-title">System Power</div>
     <div class="flex-1">
       <el-radio-group v-model="systemPower">
-      <el-radio-button :label="0">HDMI 1</el-radio-button>
-      <el-radio-button :label="1">HDMI 2</el-radio-button>
+      <el-radio-button :label="0">ON</el-radio-button>
+      <el-radio-button :label="1">OFF</el-radio-button>
     </el-radio-group>
     </div>
   </div>
@@ -100,7 +100,7 @@
   </div>
   <div class="d-flex mt-3 align-items-center">
     <div class="flex-1">
-      <MyBox class="function-box" title="Recurrence pattern">
+      <MyBox class="function-box" title="Repeat">
         <div class="d-flex">
           <div class="type-select">
             <el-radio v-model="setType" :label="0">Daily</el-radio>
@@ -123,7 +123,7 @@
   </div>
   <div class="d-flex mt-4 align-items-center">
     <div class="flex-1">
-      <MyBox class="function-box" title="Range of recurrence">
+      <MyBox class="function-box" title="Range of Repeat">
         <div class="d-flex align-items-start">
           <div class="type-select d-flex align-items-center m-2 me-3">
             <label class="me-3">Start</label>
@@ -148,9 +148,8 @@
     </div>
   </div>
   <div class="d-flex function-box mt-3">
-    <el-button type="primary">OK</el-button>
-    <el-button type="primary">Cancel</el-button>
-    <el-button type="primary">Remove Recurrence</el-button>
+    <el-button type="primary">Save</el-button>
+    <el-button type="primary">Clear</el-button>
   </div>
   <div class="my-3">Current Schedule</div>
   <el-table :data="scheduleList" class="w-75" height="180">

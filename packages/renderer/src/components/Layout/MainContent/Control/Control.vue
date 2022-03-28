@@ -32,8 +32,4 @@
   </el-radio-group>
 </template>
 <style lang="scss">
-.function-title {
-  font-size: 22px;
-  font-family: 700;
-}
 </style>

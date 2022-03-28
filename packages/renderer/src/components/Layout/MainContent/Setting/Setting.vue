@@ -9,6 +9,6 @@
   <div class="mt-3">Upload settings to a Building or Floor or Room</div>
   <el-button type="primary" class="mt-3">Load File</el-button>
   <div class="mt-3">
-    <el-button type="primary">Load File</el-button>
+    <el-button type="primary">Apply Settings</el-button>
   </div>
 </template>

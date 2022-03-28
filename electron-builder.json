@@ -1,5 +1,5 @@
 {
-  "appId": "classroom-manage",
+  "appId": "classroom-manager",
   "asar": true,
   "directories": {
     "output": "release/${version}"
