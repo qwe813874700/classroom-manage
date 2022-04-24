@@ -1,7 +1,11 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import { ipcRenderer } from 'electron'
   const scanType = ref(0)
   const ipRange = ref('')
+  const scanDevice = () => {
+    ipcRenderer.send('scanDevice')
+  }
 </script>
 
 <template>
@@ -15,7 +19,7 @@
   </div>
   <el-radio v-model="scanType" :label="1" size="large" class="mt-2">Multicast</el-radio>
   <div>
-    <el-button type="primary" class="mt-2">Scan</el-button>
+    <el-button type="primary" class="mt-2" @click="scanDevice">Scan</el-button>
   </div>
   <div class="mt-3 device-info">
     <div class="d-flex align-items-center mt-2">

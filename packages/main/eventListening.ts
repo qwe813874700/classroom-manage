@@ -56,7 +56,11 @@ const sendUdpByIp = (sendData: sendScanProps) => {
         // console.log(new Buffer(JSON.parse(decoder.write(msg)).floorInfo, 'base64').toString())
         // console.log(msg, rinfo)
         if (rinfo.address !== item.address) {
-          console.log(Buffer.from(JSON.parse(decoder.write(msg)).floorInfo, 'base64').toString())
+          try {
+            console.log(Buffer.from(JSON.parse(decoder.write(msg)).floorInfo, 'base64').toString())
+          } catch (err) {
+            console.log(err)
+          }
           // console.log(msg, rinfo)
           // this.addIplist({
           //   size: rinfo.size,
