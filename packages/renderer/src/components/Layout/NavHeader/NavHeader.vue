@@ -6,18 +6,18 @@
 
 <template>
   <div class="nav-list d-flex">
-    <div class="nav-item" :class="{ active: store.state.common.currNav === 'device' }" @click="store.commit('setNav', 'device')">Devices</div>
     <div class="nav-item" :class="{ active: store.state.common.currNav === 'control' }" @click="store.commit('setNav', 'control')">Control</div>
     <div class="nav-item" :class="{ active: store.state.common.currNav === 'schedule' }" @click="store.commit('setNav', 'schedule')">Schedule</div>
     <div class="nav-item" :class="{ active: store.state.common.currNav === 'setting' }" @click="store.commit('setNav', 'setting')">Settings</div>
     <div class="nav-item" :class="{ active: store.state.common.currNav === 'update' }" @click="store.commit('setNav', 'update')">Update</div>
+    <div class="nav-item" :class="{ active: store.state.common.currNav === 'discovery' }" @click="store.commit('setNav', 'discovery')">Discovery</div>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .nav-list {
   .nav-item {
-    padding: 17px;
+    padding: 0 17px 17px 17px;
     margin: 0 5px;
     font-size: 18px;
     cursor: pointer;
@@ -25,6 +25,10 @@
     cursor: pointer;
     &.active {
       color: #409eff;
+    }
+    &:first-child {
+      padding-left: 0;
+      margin-left: 0px;
     }
   }
 }

@@ -6,7 +6,7 @@
 
 <template>
   <div class="my-box position-relative">
-    <div class="box-title position-absolute">{{ title }}</div>
+    <div class="box-title position-absolute fw-bold">{{ title }}</div>
     <div class="box-container">
       <slot></slot>
     </div>

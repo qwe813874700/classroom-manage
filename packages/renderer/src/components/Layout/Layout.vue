@@ -6,19 +6,17 @@
 
 <template>
   <div class="layout position-relative w-100 h-100">
-    <div class="layout-header">
-      <nav-header></nav-header>
-    </div>
-    <div class="layout-body position-absolute d-flex">
-      <div class="layout-sidebar">
+    <h1 class="m-3">Room Management</h1>
+    <div class="layout-body position-absolute">
+      <div class="layout-sidebar tree-box position-absolute">
         <Sidebar></Sidebar>
       </div>
-      <div class="layout-content flex-1">
+      <div class="layout-content position-absolute">
+        <div class="layout-header">
+          <nav-header></nav-header>
+        </div>
         <main-content></main-content>
       </div>
     </div>
   </div>
 </template>
-<style lang="scss">
-
-</style>

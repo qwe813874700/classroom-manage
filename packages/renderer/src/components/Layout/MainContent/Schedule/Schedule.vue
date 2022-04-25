@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
   import MyBox from '@/components/Common/MyBox/MyBox.vue'
+  import ControlBox from'@/components/Common/ControlBox/ControlBox.vue'
   interface tableDataProps {
     id: number
     action: string
@@ -58,37 +59,11 @@
 </script>
 
 <template>
-  <div>Choose a scheduling function</div>
+  <div class="fw-bold">Choose Devices at Device On Line Tree to add a schedule</div>
+  <div class="mt-3 fw-bold">Choose a scheduling function</div>
+  <ControlBox class="mt-3"></ControlBox>
   <div class="d-flex mt-3 align-items-center">
-    <div class="d-title">A/V Inputs</div>
-    <div class="flex-1">
-      <el-radio-group v-model="avInput">
-      <el-radio-button :label="0">HDMI 1</el-radio-button>
-      <el-radio-button :label="1">HDMI 2</el-radio-button>
-      <el-radio-button :label="2">USB-C</el-radio-button>
-    </el-radio-group>
-    </div>
-  </div>
-  <div class="d-flex mt-3 align-items-center">
-    <div class="d-title">Display Power</div>
-    <div class="flex-1">
-      <el-radio-group v-model="displayPower">
-      <el-radio-button :label="0">ON</el-radio-button>
-      <el-radio-button :label="1">OFF</el-radio-button>
-    </el-radio-group>
-    </div>
-  </div>
-  <div class="d-flex mt-3 align-items-center">
-    <div class="d-title">System Power</div>
-    <div class="flex-1">
-      <el-radio-group v-model="systemPower">
-      <el-radio-button :label="0">ON</el-radio-button>
-      <el-radio-button :label="1">OFF</el-radio-button>
-    </el-radio-group>
-    </div>
-  </div>
-  <div class="d-flex mt-3 align-items-center">
-    <div class="d-title">Start</div>
+    <div class="d-title fw-bold">Start</div>
     <div class="flex-1">
       <el-date-picker
         v-model="startDate"
@@ -151,14 +126,6 @@
     <el-button type="primary">Save</el-button>
     <el-button type="primary">Clear</el-button>
   </div>
-  <div class="my-3">Current Schedule</div>
-  <el-table :data="scheduleList" class="w-75" height="180">
-    <el-table-column prop="id" label="ID"/>
-    <el-table-column prop="action" label="Action"/>
-    <el-table-column prop="start" label="Start" />
-    <el-table-column prop="pattern" label="Pattern"/>
-    <el-table-column prop="end" label="End" />
-  </el-table>
 </template>
 
 <style lang="scss">

@@ -4,7 +4,7 @@ import RootStateTypes from './interface'
 const store = createStore<RootStateTypes>({
   state: {
     common: {
-      currNav: 'device'
+      currNav: 'control'
     }
   },
   getters: {},

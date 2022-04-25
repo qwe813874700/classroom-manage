@@ -1,4 +1,4 @@
-$header_height: 60px;
+$header_height: 62px;
 $sidebar_width: 250px;
 * {
   user-select: none;
@@ -10,23 +10,33 @@ html, body, #app {
   min-width: 1000px;
   overflow: hidden;
   .layout {
-    .layout-header {
-      height: $header_height;
-    }
     .layout-body {
+      .layout-header {
+        height: $header_height;
+      }
       top: $header_height;
       bottom: 0;
       left: 0;
       right: 0;
       .layout-sidebar {
         width: $sidebar_width;
+        left: 0;
+        top: 0;
+        bottom: 0;
       }
       .layout-content {
-        padding: 20px;
+        padding: 0 20px 20px 20px;
+        left: $sidebar_width;
+        right: 0;
+        top: 0;
+        bottom: 0;
       }
     }
   }
 }
 .flex-1 {
   flex: 1;
+}
+.fw-bold .el-checkbox__label {
+  font-weight: bold !important;
 }

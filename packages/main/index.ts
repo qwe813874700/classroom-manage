@@ -1,7 +1,8 @@
-import { app, BrowserWindow, shell, Menu } from 'electron'
+import { app, BrowserWindow, shell, Menu, globalShortcut } from 'electron'
 import { release } from 'os'
 import { join } from 'path'
 import './eventListening'
+import configs from '../../package.json'
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith('6.1')) app.disableHardwareAcceleration()
 
@@ -19,14 +20,16 @@ let win: BrowserWindow | null = null
 async function createWindow() {
   Menu.setApplicationMenu(null)
   win = new BrowserWindow({
-    title: 'Classroom Manager',
+    title: `AMX Room Management Tool V${configs.version}`,
     webPreferences: {
       preload: join(__dirname, '../preload/index.cjs'),
       nodeIntegration: true,
       contextIsolation: false
     },
     width: 1200,
-    height: 930
+    height: 930,
+    minWidth: 1200,
+    minHeight: 930
   })
   // win.maximize()
   if (app.isPackaged) {
@@ -62,7 +65,10 @@ async function createWindow() {
   })
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(() => {
+  createWindow()
+  registerCommand()
+})
 
 app.on('window-all-closed', () => {
   win = null
@@ -78,6 +84,7 @@ app.on('second-instance', () => {
 })
 
 app.on('activate', () => {
+  // registerCommand()  
   const allWindows = BrowserWindow.getAllWindows()
   if (allWindows.length) {
     allWindows[0].focus()
@@ -85,3 +92,14 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+function registerCommand () {
+  if (process.env.NODE_ENV === 'development') {
+    globalShortcut.register('Ctrl+Shift+I', () => {
+      win?.webContents.openDevTools()
+    })
+    globalShortcut.register('f5', () => {
+      win?.webContents.reload()
+    })
+  }
+}
