@@ -11,7 +11,6 @@ const store = createStore<RootStateTypes>({
   mutations: {
     setNav (state, data) {
       state.common.currNav = data
-      console.log(state.common.currNav)
     }
   },
   actions: {

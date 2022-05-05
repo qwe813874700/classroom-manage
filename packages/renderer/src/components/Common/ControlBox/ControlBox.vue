@@ -7,31 +7,34 @@ const mute = ref(false)
 
 <template>
   <el-row :class="$attrs.class">
-    <el-col :span="10">
+    <el-col :span="11">
       <div class="function-title mb-3">Auto Switching</div>
       <el-radio-group v-model="avType">
         <el-radio-button :label="0">Enable</el-radio-button>
         <el-radio-button :label="1">Disable</el-radio-button>
       </el-radio-group>
     </el-col>
-    <el-col :span="14">
+    <el-col :span="13">
       <div class="function-title mb-3">Volume</div>
       <div class="slider-block mx-2 d-flex">
         <el-slider v-model="gainNumber" show-input class="w-75 me-4" />
-        <el-checkbox v-model="mute" class="mute fw-bold">Mute</el-checkbox>
+        <el-checkbox v-model="mute" class="mute fw-bold">Audio Mute</el-checkbox>
       </div>
     </el-col>
   </el-row>
   <el-row class="mt-3">
-    <el-col :span="10">
+    <el-col :span="11">
       <div class="function-title mb-3">Source Inputs</div>
-      <el-radio-group v-model="avType">
-        <el-radio-button :label="0">HDMI 1</el-radio-button>
-        <el-radio-button :label="1">USB-C</el-radio-button>
-        <el-radio-button :label="2">USB-B</el-radio-button>
-      </el-radio-group>
+      <div class="d-flex align-items-center">
+        <el-radio-group v-model="avType" class="">
+          <el-radio-button :label="0">HDMI 1</el-radio-button>
+          <el-radio-button :label="1">HDMI 2</el-radio-button>
+          <el-radio-button :label="2">USB-C</el-radio-button>
+        </el-radio-group>
+        <el-checkbox v-model="mute" class="mute fw-bold ms-4">Video Mute</el-checkbox>
+      </div>
     </el-col>
-    <el-col :span="14">
+    <el-col :span="13">
       <div class="function-title mb-3">Microphone Gain</div>
       <div class="slider-block mx-2 d-flex">
         <el-slider v-model="gainNumber" show-input class="w-75" />
@@ -42,8 +45,8 @@ const mute = ref(false)
     <el-col :span="24">
       <div class="function-title mb-3">Display</div>
       <el-radio-group v-model="avType">
-        <el-radio-button :label="0">Enable</el-radio-button>
-        <el-radio-button :label="1">Disable</el-radio-button>
+        <el-radio-button :label="0">ON</el-radio-button>
+        <el-radio-button :label="1">OFF</el-radio-button>
       </el-radio-group>
     </el-col>
   </el-row>

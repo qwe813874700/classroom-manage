@@ -1,6 +1,6 @@
 {
   "name": "classroom-manager",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "main": "dist/main/index.cjs",
   "author": "玩视科技有限公司",
   "license": "MIT",

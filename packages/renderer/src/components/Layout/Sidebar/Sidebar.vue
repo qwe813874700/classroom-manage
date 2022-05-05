@@ -36,7 +36,7 @@
           ]
         },
         {
-          label: 'Floor 1',
+          label: 'Floor 2',
           level: 1,
           children: [
             {

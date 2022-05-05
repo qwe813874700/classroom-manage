@@ -35,9 +35,20 @@
 <div class="mt-3 fw-bold">Firmware Update</div>
 <div class="mt-3">
   <el-table :data="tableData" class="w-100" size="small" :max-height="530">
+    <el-table-column
+      type="selection"
+      width="55"/>
     <el-table-column prop="device" label="Device"/>
     <el-table-column prop="updateStatus" label="Status" />
     <el-table-column prop="version" label="Latest Firmware Version"/>
+    <el-table-column width="120">
+      <template #header>
+        <el-button type="primary" class="w-100">Update All</el-button>
+      </template>
+      <template #default="scope">
+        <el-button type="primary" class="w-100">Update</el-button>
+      </template>
+    </el-table-column>
   </el-table>
 </div>
 </template>

@@ -59,16 +59,16 @@
     <el-col :span="12">
       <MyBox  title="Frimware Version"  class="w-100 info-height">
         <div class="info">
-          Receiver: V1.0
+          Receiver: V1.0.0
         </div>
         <div class="info">
-          Wallplate: V1.0
+          Wallplate: V1.0.0
         </div>
         <div class="info">
-          Keypad: V1.0
+          Keypad: V1.0.0
         </div>
         <div class="info">
-          Web: V2.0
+          Web: V1.0.0
         </div>
       </MyBox>
     </el-col>

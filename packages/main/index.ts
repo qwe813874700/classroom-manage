@@ -29,7 +29,7 @@ async function createWindow() {
     width: 1200,
     height: 930,
     minWidth: 1200,
-    minHeight: 930
+    minHeight: 700
   })
   // win.maximize()
   if (app.isPackaged) {
