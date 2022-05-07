@@ -1,4 +1,4 @@
-import { ipcMain } from 'electron'
+import { ipcMain, Menu, MenuItem, MenuItemConstructorOptions } from 'electron'
 import os, { NetworkInterfaceInfo } from 'os'
 import { createSocket, Socket as udpSocket } from 'dgram'
 import { StringDecoder } from 'string_decoder'
@@ -8,6 +8,7 @@ interface sendScanProps {
   guihead: string
   pinCode: string
 }
+
 interface scanDeviceResultProps {
   guihead: string
   dhcpEnable: 0 | 1
@@ -17,6 +18,12 @@ interface scanDeviceResultProps {
   mask: string
   floorInfo: string
 }
+
+interface sendMenuType {
+  type: 'deleteDevice'
+  data?: any
+}
+
 ipcMain.on('scanDevice', async (e, data) => {
   const sendData: sendScanProps = {
     guihead: 'scanDevice',
@@ -42,8 +49,13 @@ const getNetwrokInterface = () => {
 const SEND_PORT = 30600
 const BROA_ADDRESS = '255.255.255.255' // 广播地址
 
+/**
+ * 
+ * @param { sendScanProps } sendData 需要发送的UDP数据包
+ * @returns Promise
+ */
 const sendUdpByIp = (sendData: sendScanProps) => {
-  return new Promise((resolve) => {
+  return new Promise<scanDeviceResultProps[]>((resolve) => {
     const allNetworkCard = getNetwrokInterface()
     const deviceList: scanDeviceResultProps[] = []
     const SEND_CONTENT = Buffer.from(JSON.stringify(sendData))

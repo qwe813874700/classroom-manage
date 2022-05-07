@@ -57,7 +57,7 @@
       </MyBox>
     </el-col>
     <el-col :span="12">
-      <MyBox  title="Frimware Version"  class="w-100 info-height">
+      <MyBox  title="Firmware Version"  class="w-100 info-height">
         <div class="info">
           Receiver: V1.0.0
         </div>

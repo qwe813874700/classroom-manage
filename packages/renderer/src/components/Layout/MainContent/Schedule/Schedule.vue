@@ -4,9 +4,10 @@
   import ControlBox from'@/components/Common/ControlBox/ControlBox.vue'
   interface tableDataProps {
     id: number
+    deviceName: string
     action: string
     start: string
-    pattern: string,
+    repeat: string,
     end: string
   }
 
@@ -15,51 +16,56 @@
   const systemPower = ref(0) // System Power
   const startDate = ref('') // 开始时间
   const defaultDate = new Date() // 默认显示当前时间
-  const setType = ref(0) // 选择Recurrence pattern是每天还是 一周内选
+  const setType = ref(0) // 选择Recurrence repeat是每天还是 一周内选
   const dataSelect = ref([0, 1, 2 ,3]) // 选择的天数
   const rangeStartDate = ref('')
   const rangeTypeSelect = ref(0)
   const scheduleList: tableDataProps[] = [
     {
       id: 0,
+      deviceName: 'Building/Floor 1/Device 1',
       action: 'Display ON',
       start: '2022/09/04',
-      pattern: '11: 19 Weekly 1 2 3 4 5 6',
+      repeat: '11: 19 Weekly 1 2 3 4 5 6',
       end: 'No end date'
     },
     {
       id: 1,
+      deviceName: 'Building/Floor 1/Device 2',
       action: 'Display ON',
       start: '2022/09/04',
-      pattern: '11: 19 Weekly 1 2 3 4 5 6',
+      repeat: '11: 19 Weekly 1 2 3 4 5 6',
       end: 'No end date'
     },
     {
-      id: 1,
+      id: 2,
+      deviceName: 'Building/Floor 1/Device 3',
       action: 'Display ON',
       start: '2022/09/04',
-      pattern: '11: 19 Weekly 1 2 3 4 5 6',
+      repeat: '11: 19 Weekly 1 2 3 4 5 6',
       end: 'No end date'
     },
     {
-      id: 1,
+      id: 3,
+      deviceName: 'Building/Floor 2/Device 4',
       action: 'Display ON',
       start: '2022/09/04',
-      pattern: '11: 19 Weekly 1 2 3 4 5 6',
+      repeat: '11: 19 Weekly 1 2 3 4 5 6',
       end: 'No end date'
     },
     {
-      id: 1,
+      id: 4,
+      deviceName: 'Building/Floor 2/Device 5',
       action: 'Display ON',
       start: '2022/09/04',
-      pattern: '11: 19 Weekly 1 2 3 4 5 6',
+      repeat: '11: 19 Weekly 1 2 3 4 5 6',
       end: 'No end date'
     }
   ]
 </script>
 
 <template>
-  <div class="fw-bold">Choose Devices at Device On Line Tree to add a schedule</div>
+  <div class="fw-bold">Choose Devices at Device Online Tree to add a schedule</div>
   <div class="mt-3 fw-bold">Choose a scheduling function</div>
   <ControlBox class="mt-3"></ControlBox>
   <div class="d-flex mt-3 align-items-center">
@@ -126,6 +132,23 @@
     <el-button type="primary">Save</el-button>
     <el-button type="primary">Clear</el-button>
   </div>
+  <el-row class="mt-3">
+    <el-col :span="24">
+      <div class="function-title mb-3">Current Schedule</div>
+      <el-table :data="scheduleList" class="w-100" size="small">
+        <el-table-column prop="id" label="ID" width="40"/>
+        <el-table-column prop="deviceName" label="Device name"/>
+        <el-table-column prop="action" label="Name"/>
+        <el-table-column prop="start" label="Start" />
+        <el-table-column prop="repeat" label="Repeat" />
+        <el-table-column prop="repeat" label="Repeat">
+          <template #default="scope">
+            <el-button size="small" type="primary">Remove</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </el-col>
+  </el-row>
 </template>
 
 <style lang="scss">

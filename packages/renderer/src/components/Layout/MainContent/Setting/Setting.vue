@@ -7,7 +7,7 @@
     <el-button type="primary">Copy Settings</el-button>
   </div>
   <div class="mt-3 fw-bold">Upload settings to a Building or Floor or Room</div>
-  <el-button type="primary" class="mt-3">Load File</el-button>
+  <el-button type="primary" class="mt-3">Load Settings</el-button>
   <div class="mt-3">
     <el-button type="primary">Apply Settings</el-button>
   </div>

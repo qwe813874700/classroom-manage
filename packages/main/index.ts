@@ -3,6 +3,7 @@ import { release } from 'os'
 import { join } from 'path'
 import './eventListening'
 import configs from '../../package.json'
+
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith('6.1')) app.disableHardwareAcceleration()
 
@@ -29,8 +30,11 @@ async function createWindow() {
     width: 1200,
     height: 930,
     minWidth: 1200,
-    minHeight: 700
+    minHeight: 700,
+    
   })
+  require('@electron/remote/main').initialize()
+  require('@electron/remote/main').enable(win.webContents)
   // win.maximize()
   if (app.isPackaged) {
     win.loadFile(join(__dirname, '../renderer/index.html'))
